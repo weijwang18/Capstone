@@ -51,4 +51,4 @@ Research & Planning Log
 Friday, 08/13
 8:00 - 10:00 look at examples
 10:30 - 12:00 write proposal 
-1:30 - 2:30 WIP:Designing layout
+1:30 - 3:30 design the first draft of the layout
