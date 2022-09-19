@@ -11,6 +11,7 @@
 
 ## Description
 
+This is a web application that help people keep track of all their drink purchases and consumption. 
 
 ## Component Diagram
 
@@ -45,11 +46,11 @@ _Requires console application such as Git Bash, Terminal, or PowerShell_
 
 MIT
 
-Copyright (c) 2022 Winnie Wang
+## Research & Planning Log
+* Friday, 08/13
+* 8:00 - 10:00 look at examples
+* 10:30 - 12:00 write proposal 
+* 1:30 - 3:30 design the first draft of the layout
+* 4:00 - 5:00 create diagram 
 
-Research & Planning Log
-Friday, 08/13
-8:00 - 10:00 look at examples
-10:30 - 12:00 write proposal 
-1:30 - 3:30 design the first draft of the layout
-4:00 - 5:00 create diagram 
+Copyright (c) 2022 Winnie Wang
