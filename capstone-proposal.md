@@ -11,6 +11,8 @@
 ## What tools, frameworks, libraries, APIs, modules and/or other resources (whatever is specific to your track, and your language) will you use to create this MVP? List them all here. Be specific.
 * React
 * Javascript
+* Firestone
+* MUI
 ## If you finish developing the minimum viable product (MVP) with time to spare, what will you work on next? Describe these features here: Be specific.
 * Allow user to pin point milk tea places on google map.
 * To include a calendar that shows the brand logo of the drink so if you drink starsbuck on that day, it will display a starbuck logo on that day.
