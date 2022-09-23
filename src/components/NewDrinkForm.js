@@ -9,15 +9,19 @@ function NewDrinkForm(props){
           <input
             type = 'text'
             name = 'name' 
-            placeholder = 'Name' />
-          <input
-            type = "number"
-            name = 'quantity' 
-            placeholder = 'Quantity' />
+            placeholder = 'Drink Name' />
           <input
            type = "number"
-           name = 'price'
-           placeholder = 'Price' />
+           name = 'location'
+           placeholder = 'Location' />
+        <input
+            type = "number"
+            name = 'price' 
+            placeholder = 'Price' />
+        <input
+           type = "number"
+           name = 'description'
+           placeholder = 'Description' />
           <button type='submit'>Submit</button>
         </form>
     </React.Fragment>

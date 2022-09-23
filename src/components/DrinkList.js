@@ -10,7 +10,8 @@ function DrinkList(props){
         whenDrinkClicked = { props.onDrinkSelection }
         name = {drink.name}
         price = {drink.price}
-        quantity = {drink.quantity}
+        location = {drink.location}
+        description = {drink.description}
         id = {drink.id}
         key = {drink.id} />
       )}
