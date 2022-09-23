@@ -55,7 +55,8 @@ Friday, 09/16
 * 4:00 - 5:00 write proposal 
 Friday, 09/23
 * 8:00 - 8:40 watch Figma tutorial for UI Design
-* 8:50 - 9:50 make layout in Figma, plan out structure (ongoing)
+* 8:50 - 9:50 make layout in Figma, plan out structure 
 * 9:50 - 10:50 research Figma plugins and widgets
+* 10:50 - 11:50 make layout in Figma, plan out structure
 
 Copyright (c) 2022 Winnie Wang
