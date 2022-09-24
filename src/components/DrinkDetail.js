@@ -8,8 +8,9 @@ function DrinkDetail(props){
       <React.Fragment>
         <h1>Drink Detail</h1>
         <h1>{drink.name}</h1>
+        <h1>{drink.location}</h1>
         <p>$ {drink.price} </p>
-        <p>Quantity: {drink.quantity} </p>
+        <p>{drink.description} </p>
         <hr/>
       </React.Fragment>
     );

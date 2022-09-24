@@ -17,7 +17,8 @@ function Drink(props){
 Drink.prototype = {
   name: PropTypes.string,
   price: PropTypes.number,
-  quantity: PropTypes.number,
+  location: PropTypes.string,
+  description: PropTypes.string,
   id: PropTypes.string,
   whenDrinkClicked: PropTypes.func
 }
