@@ -38,12 +38,20 @@ class DrinkControl extends React.Component {
                   formVisibleOnPage: false });
   }
 
+  handleDeletingDrink = (id) => {
+    const newMainDrinkList = this.state.mainDrinkList.filter(drink => drink.id !== id);
+    this.setState({
+     mainDrinkList: newMainDrinkList,
+      selectedDrink: null
+    });
+  } 
+
   render(){
     let currentlyVisibleState = null;
     let buttonText = null;
 
     if (this.state.selectedDrink != null) {
-      currentlyVisibleState = <DrinkDetail drink = {this.state.selectedDrink} />
+      currentlyVisibleState = <DrinkDetail drink = {this.state.selectedDrink} onClickingDelete = {this.handleDeletingDrink}/>
       buttonText = "Return to Drink List";}
     else if (this.state.formVisibleOnPage){
       currentlyVisibleState = <NewDrinkForm onNewDrinkCreation={this.handleAddingNewDrinkToList}/>;
