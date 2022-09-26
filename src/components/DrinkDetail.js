@@ -6,6 +6,7 @@ function DrinkDetail(props){
 
     return (
       <React.Fragment>
+        
         <h1>Drink Detail</h1>
         <h1>{drink.name}</h1>
         <h1>{drink.location}</h1>
