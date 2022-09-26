@@ -11,7 +11,8 @@ function DrinkDetail(props){
         <h1>{drink.location}</h1>
         <p>$ {drink.price} </p>
         <p>{drink.description} </p>
-        <button onClick={()=> onClickingDelete(drink.id) }>Delete Drink</button>
+        <button onClick={ props.onClickingEdit }>Update Drink</button>
+        <button onClick={()=> props.onClickingDelete(drink.id) }>Delete Drink</button>
         <hr/>
       </React.Fragment>
     );
@@ -19,7 +20,8 @@ function DrinkDetail(props){
   
   DrinkDetail.propTypes = {
     drink: PropTypes.object,
-    onClickingDelete: PropTypes.func
+    onClickingDelete: PropTypes.func,
+    onClickingEdit: PropTypes.func
   };
 
 export default DrinkDetail;
