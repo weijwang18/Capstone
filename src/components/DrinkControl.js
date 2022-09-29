@@ -3,6 +3,7 @@ import NewDrinkForm from "./NewDrinkForm";
 import DrinkList from "./DrinkList";
 import DrinkDetail from './DrinkDetail';
 import EditDrinkForm from './EditDrinkForm';
+import { Button } from "@mui/material";
 
 class DrinkControl extends React.Component {
 
@@ -85,7 +86,7 @@ class DrinkControl extends React.Component {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <button onClick = {this.handleClick}>{buttonText}</button>
+        <Button onClick = {this.handleClick}>{buttonText}</Button>
       </React.Fragment>
     );
   }

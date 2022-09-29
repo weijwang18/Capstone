@@ -4,7 +4,7 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
-
+import { Button } from "@mui/material";
 
 function NewDrinkForm(props){
   return (
@@ -51,7 +51,7 @@ function NewDrinkForm(props){
           />
         </Grid>
       </Grid>
-      <button type='submit'>Submit</button>
+      <Button type='submit'>Submit</Button>
         </form>
     </React.Fragment>
   );

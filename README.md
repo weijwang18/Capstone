@@ -60,3 +60,5 @@ Friday, 09/23
 * 10:50 - 11:50 make layout in Figma, plan out structure
 
 Copyright (c) 2022 Winnie Wang
+
+
