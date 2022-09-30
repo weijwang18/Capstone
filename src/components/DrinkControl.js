@@ -43,8 +43,8 @@ function DrinkControl() {
 
   handleAddingNewDrinkToList = (newDrink) => {
     const newMainDrinkList = this.state.mainDrinkList.concat(newDrink);
-    this.setState({mainDrinkList: newMainDrinkList,
-                  formVisibleOnPage: false });
+    this.setState({mainDrinkList: newMainDrinkList});
+      setFormVisibleOnPage(false)
   }
 
   handleEditingDrinkInList = (drinkToEdit) => {
