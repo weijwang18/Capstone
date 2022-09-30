@@ -58,6 +58,8 @@ Friday, 09/23
 * 8:50 - 9:50 make layout in Figma, plan out structure 
 * 9:50 - 10:50 research Figma plugins and widgets
 * 10:50 - 11:50 make layout in Figma, plan out structure
+Friday, 09/30
+* 10:00 - 11:00 watch hook tutorial
 
 Copyright (c) 2022 Winnie Wang
 
