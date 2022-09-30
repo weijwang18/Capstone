@@ -4,7 +4,7 @@ import DrinkList from "./DrinkList";
 import DrinkDetail from './DrinkDetail';
 import EditDrinkForm from './EditDrinkForm';
 import { Button } from "@mui/material";
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 function DrinkControl() {
 
@@ -28,7 +28,7 @@ function DrinkControl() {
   }
 
   const handleChangingSelectedDrink = (id) => {
-    const selected = mainDrinkList.filter(drink => drink.id === id)[0];
+    const selection = mainDrinkList.filter(drink => drink.id === id)[0];
     setSelectedDrink(selection);
   }
 
@@ -72,7 +72,7 @@ function DrinkControl() {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <Button onClick = {this.handleClick}>{buttonText}</Button>
+        <Button onClick = {handleClick}>{buttonText}</Button>
       </React.Fragment>
     );
   }
