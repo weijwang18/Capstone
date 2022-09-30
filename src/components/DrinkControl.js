@@ -10,74 +10,63 @@ function DrinkControl() {
 
   const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
   const [mainDrinkList, setMainDrinkList] = useState([]);
+  const [selectedDrink, setSelectedDrink] = useState(null);
+  const [editing, setEditing] = useState(false);
 
   const handleEditClick = () => {
-    if (this.state.selectedDrink != null) {
-      setFormVisibleOnPage(false);  
-      this.setState({
-        formVisibleOnPage: false,
-        selectedDrink: null,
-      });
-    } else {
-      setFormVisibleOnPage(!formVisibleOnPage);
-    }
+    setEditing(true);
   }
 
   const handleClick = () => {
-    if (this.state.selectedDrink != null) {
-      this.setState({
-        formVisibleOnPage: false,
-        selectedDrink: null,
-        editing: false
-      });
+    if (selectedDrink != null) {
+      setFormVisibleOnPage(false);
+      setSelectedDrink(null);
+      setEditing(false);
     } else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
-      }));
+        setFormVisibleOnPage(!formVisibleOnPage);
     }
   }
 
   const handleChangingSelectedDrink = (id) => {
-    const selectedDrink = this.state.mainDrinkList.filter(drink => drink.id === id)[0];
-    this.setState({selectedDrink: selectedDrink});
+    const selected = mainDrinkList.filter(drink => drink.id === id)[0];
+    setSelectedDrink(selection);
   }
 
   const handleAddingNewDrinkToList = (newDrink) => {
-    const newMainDrinkList = this.state.mainDrinkList.concat(newDrink);
-    this.setState({mainDrinkList: newMainDrinkList});
+    const newMainDrinkList = mainDrinkList.concat(newDrink);
+    setMainDrinkList(newMainDrinkList);
       setFormVisibleOnPage(false)
   }
 
   const handleEditingDrinkInList = (drinkToEdit) => {
-    const editedMainDrinkList = this.state.mainDrinkList
-      .filter(drink => drink.id !== this.state.selectedDrink.id)
+    const editedMainDrinkList = mainDrinkList
+      .filter(drink => drink.id !== selectedDrink.id)
       .concat(drinkToEdit);
-    this.setState({
-        mainDrinkList: editedMainDrinkList,
-        editing: false,
-        selectedDrink: null
-      });
+    setMainDrinkList(editedMainDrinkList);
+    setEditing(false);
+    setSelectedDrink(null);
   }
 
   const handleDeletingDrink = (id) => {
-    const newMainDrinkList = this.state.mainDrinkList.filter(drink => drink.id !== id);
+    const newMainDrinkList = mainDrinkList.filter(drink => drink.id !== id);
     setMainDrinkList(newMainDrinkList);
+    setSelectedDrink(null);
   } 
 
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (this.state.editing ) {      
-      currentlyVisibleState = <EditDrinkForm drink = {this.state.selectedDrink} onEditDrink = {this.handleEditingDrinkInList}/>
+    if (editing ) {      
+      currentlyVisibleState = <EditDrinkForm drink = {selectedDrink} onEditDrink = {handleEditingDrinkInList}/>
       buttonText = "Return to Drink List";
-    } else if (this.state.selectedDrink != null) {
-      currentlyVisibleState = <DrinkDetail drink = {selectedDrink} onClickingDelete = {this.handleDeletingDrink} onClickingEdit = {this.handleEditClick}/>
+    } else if (selectedDrink != null) {
+      currentlyVisibleState = <DrinkDetail drink = {selectedDrink} onClickingDelete = {handleDeletingDrink} onClickingEdit = {handleEditClick}/>
       buttonText = "Return to Drink List";}
-    else if (this.state.formVisibleOnPage){
-      currentlyVisibleState = <NewDrinkForm onNewDrinkCreation={this.handleAddingNewDrinkToList}/>;
+    else if (formVisibleOnPage){
+      currentlyVisibleState = <NewDrinkForm onNewDrinkCreation={handleAddingNewDrinkToList}/>;
       buttonText = "Return to Drink List";
     } else { 
-      currentlyVisibleState = <DrinkList drinkList = {this.state.mainDrinkList} onDrinkSelection={this.handleChangingSelectedDrink} />;
+      currentlyVisibleState = <DrinkList onDrinkSelection = {handleChangingSelectedDrink}  drinkList={mainDrinkList}/>;
       buttonText = "Add Drink";
     }
     return (
