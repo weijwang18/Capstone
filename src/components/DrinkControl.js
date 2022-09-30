@@ -4,22 +4,22 @@ import DrinkList from "./DrinkList";
 import DrinkDetail from './DrinkDetail';
 import EditDrinkForm from './EditDrinkForm';
 import { Button } from "@mui/material";
+import React, { useState } from 'react';
 
-class DrinkControl extends React.Component {
+function DrinkControl() {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      formVisibleOnpage: false,
-      mainDrinkList: [],
-      selectedDrink: null,
-      editing: false
-    };
-  }
+  const [formVisibleOnPage, setFormVisibleOnPage] = useState(false);
 
   handleEditClick = () => {
-    console.log("handleEditClick reached!");
-    this.setState({editing: true});
+    if (this.state.selectedDrink != null) {
+      setFormVisibleOnPage(false);  
+      this.setState({
+        formVisibleOnPage: false,
+        selectedDrink: null,
+      });
+    } else {
+      setFormVisibleOnPage(!formVisibleOnPage);
+    }
   }
 
   handleClick = () => {
@@ -66,7 +66,6 @@ class DrinkControl extends React.Component {
     });
   } 
 
-  render(){
     let currentlyVisibleState = null;
     let buttonText = null;
 
@@ -91,6 +90,5 @@ class DrinkControl extends React.Component {
     );
   }
 
-}
 
 export default DrinkControl;
