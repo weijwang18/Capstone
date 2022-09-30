@@ -6,7 +6,7 @@ import EditDrinkForm from './EditDrinkForm';
 import { Button } from "@mui/material";
 import { useState } from 'react';
 import db from './../firebase.js';
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, onSnapshot } from "firebase/firestore";
 
 function DrinkControl() {
 
@@ -15,6 +15,12 @@ function DrinkControl() {
   const [selectedDrink, setSelectedDrink] = useState(null);
   const [editing, setEditing] = useState(false);
 
+  useEffect(() => { 
+    const queryByTimestamp = query(
+      collection(db, "tickets"), 
+      orderBy('timeOpen')
+    );
+    
   const handleEditClick = () => {
     setEditing(true);
   }
