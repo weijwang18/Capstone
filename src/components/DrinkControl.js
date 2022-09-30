@@ -5,6 +5,8 @@ import DrinkDetail from './DrinkDetail';
 import EditDrinkForm from './EditDrinkForm';
 import { Button } from "@mui/material";
 import { useState } from 'react';
+import db from './../firebase.js';
+import { collection, addDoc } from "firebase/firestore";
 
 function DrinkControl() {
 
@@ -32,10 +34,10 @@ function DrinkControl() {
     setSelectedDrink(selection);
   }
 
-  const handleAddingNewDrinkToList = (newDrink) => {
-    const newMainDrinkList = mainDrinkList.concat(newDrink);
-    setMainDrinkList(newMainDrinkList);
-      setFormVisibleOnPage(false)
+  const handleAddingNewDrinkToList = async (newDrinkData) => {
+    const collectionRef = collection(db, "drinks");
+    await addDoc(collectionRef, newDrinkData);
+    setFormVisibleOnPage(false);
   }
 
   const handleEditingDrinkInList = (drinkToEdit) => {

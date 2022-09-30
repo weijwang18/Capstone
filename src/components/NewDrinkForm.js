@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { v4 } from 'uuid';
 import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
@@ -64,7 +63,7 @@ function NewDrinkForm(props){
       location: event.target.location.value, 
       price: event.target.price.value, 
       description: event.target.description.value,
-      id: v4()
+
     });
   }
 };
