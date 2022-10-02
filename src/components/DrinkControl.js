@@ -4,9 +4,9 @@ import DrinkList from "./DrinkList";
 import DrinkDetail from './DrinkDetail';
 import EditDrinkForm from './EditDrinkForm';
 import { Button } from "@mui/material";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import db from './../firebase.js';
-import { collection, addDoc, onSnapshot } from "firebase/firestore";
+import { collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
 
 function DrinkControl() {
 
@@ -14,13 +14,32 @@ function DrinkControl() {
   const [mainDrinkList, setMainDrinkList] = useState([]);
   const [selectedDrink, setSelectedDrink] = useState(null);
   const [editing, setEditing] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => { 
-    const queryByTimestamp = query(
-      collection(db, "tickets"), 
-      orderBy('timeOpen')
+    const unSubscribe = onSnapshot(
+      collection(db, "drinks"), 
+      (collectionSnapshot) => {
+        const drinks = [];
+        collectionSnapshot.forEach((doc) => {
+            drinks.push({
+              name: doc.data().name, 
+              price: doc.data().price,
+              location: doc.data().location, 
+              description: doc.data().description, 
+              id: doc.id
+            });
+        });
+        setMainDrinkList(drinks);
+      }, 
+      (error) => {
+        setError(error.message);
+      }
     );
-    
+
+    return () => unSubscribe();
+  }, []);
+
   const handleEditClick = () => {
     setEditing(true);
   }
@@ -64,7 +83,9 @@ function DrinkControl() {
     let currentlyVisibleState = null;
     let buttonText = null;
 
-    if (editing ) {      
+    if (error) {
+      currentlyVisibleState = <p>There was an error: {error}</p>
+    } else if (editing ) {      
       currentlyVisibleState = <EditDrinkForm drink = {selectedDrink} onEditDrink = {handleEditingDrinkInList}/>
       buttonText = "Return to Drink List";
     } else if (selectedDrink != null) {
@@ -80,7 +101,7 @@ function DrinkControl() {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        <Button onClick = {handleClick}>{buttonText}</Button>
+        {error ? null : <button onClick={handleClick}>{buttonText}</button>}
       </React.Fragment>
     );
   }
