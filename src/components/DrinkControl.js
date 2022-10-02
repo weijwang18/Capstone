@@ -65,18 +65,15 @@ function DrinkControl() {
     setFormVisibleOnPage(false);
   }
 
-  const handleEditingDrinkInList = (drinkToEdit) => {
-    const editedMainDrinkList = mainDrinkList
-      .filter(drink => drink.id !== selectedDrink.id)
-      .concat(drinkToEdit);
-    setMainDrinkList(editedMainDrinkList);
+  const handleEditingDrinkInList = async (drinkToEdit) => {
+    const drinkRef = doc(db, "drinks", drinkToEdit.id);
+    await updateDoc(drinkRef, drinkToEdit);
     setEditing(false);
     setSelectedDrink(null);
   }
 
-  const handleDeletingDrink = (id) => {
-    const newMainDrinkList = mainDrinkList.filter(drink => drink.id !== id);
-    setMainDrinkList(newMainDrinkList);
+  const handleDeletingDrink = async (id) => {
+    await deleteDoc(doc(db, "drinks", id));
     setSelectedDrink(null);
   } 
 
