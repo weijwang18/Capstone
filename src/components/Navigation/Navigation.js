@@ -1,18 +1,20 @@
 import React from "react";
-import { NavLink } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import './Navigation.css';
-import Nav from 'react-bootstrap/Nav';
 
 function Navigation() {
   return(
-    
-    <div className="headerStyle">
-      <Nav defaultActiveKey="/" className="flex-column">
-      <h4><NavLink to="/" className="headerStyle">Home</NavLink></h4>
-      <h4><NavLink to="/snapNow" className="headerStyle" >Snap Now</NavLink></h4>
-      <h4><NavLink to="/histroy" className="headerStyle">History</NavLink></h4>
-    </Nav>
-    </div>
+   <React.Fragment>
+    <h1> Sip ‘n Snap </h1>
+      <ul>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/sign-in">Sign In</Link>
+        </li>
+    </ul>
+   </React.Fragment>
   );
 }
 

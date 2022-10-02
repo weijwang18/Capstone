@@ -5,7 +5,7 @@ import DrinkDetail from './DrinkDetail';
 import EditDrinkForm from './EditDrinkForm';
 import { Button } from "@mui/material";
 import { useState, useEffect } from 'react';
-import db from './../firebase.js';
+import { db } from './../firebase.js'
 import { collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
 
 function DrinkControl() {
