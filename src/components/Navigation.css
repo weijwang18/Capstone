@@ -1,0 +1,14 @@
+nav.container{
+    box-sizing: border-box;
+    position: fixed;
+    left: 0;
+    background-color: var(--nav-bg);
+    -webkit-appearance: none;
+
+    top: 0;
+
+    width: 120px;
+    padding: 0px 0px;
+    z-index: 90;
+    transition: background-color 350ms;
+}
