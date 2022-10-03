@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: antiquewhite;
+  background-image: url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/047/426/original/b1b145dfb62e6cf246625c277f7b7be3.jpg?1664769314');
 }
 
 code {
@@ -19,19 +19,18 @@ code {
   left: 0;
   top: 0;
   height: 100vh;
-  width: 180px;
+  width: 150px;
   padding: 0px 0px;
-  z-index: 90;
-  transition: background-color 350ms;
+  /* z-index: 90; */
+  background-color: #DFE8ED;
 }
 
 .right {
   position: relative;
   box-sizing: border-box;
   top: 0;
-  left: 180px;
+  left: 150px;
   height: 100vh;
   width: calc(100vw - 120px);
-  background-color: aqua;
   padding:40px;
 }

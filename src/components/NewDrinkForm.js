@@ -4,8 +4,44 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
+import { useState, useEffect } from "react";
+import { v4 } from "uuid";
+import {
+  ref,
+  uploadBytes,
+  getDownloadURL,
+  listAll,
+  list,
+} from "firebase/storage";
+import { storage } from "./../firebase";
 
 function NewDrinkForm(props){
+
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageUrls, setImageUrls] = useState([]);
+  
+  const imagesListRef = ref(storage, "images/");
+  const uploadFile = () => {
+    if (imageUpload == null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload).then((snapshot) => {
+      getDownloadURL(snapshot.ref).then((url) => {
+        setImageUrls((prev) => [...prev, url]);
+      });
+    });
+  };
+
+  useEffect(() => {
+    listAll(imagesListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageUrls((prev) => [...prev, url]);
+        });
+      });
+    });
+  }, []);
+
+
   return (
     <React.Fragment>
         <form onSubmit={handleNewDrinkFormSubmission}>
@@ -52,6 +88,16 @@ function NewDrinkForm(props){
       </Grid>
       <Button type='submit'>Submit</Button>
         </form>
+        <input
+        type="file"
+        onChange={(event) => {
+          setImageUpload(event.target.files[0]);
+        }}
+      />
+      <button onClick={uploadFile}> Upload Image</button>
+      {imageUrls.map((url) => {
+        return <img src={url} />;
+      })}
     </React.Fragment>
   );
   
@@ -63,10 +109,10 @@ function NewDrinkForm(props){
       location: event.target.location.value, 
       price: event.target.price.value, 
       description: event.target.description.value,
-
     });
   }
-};
+}
+
   NewDrinkForm.propTypes = {
     onNewDrinkCreation: PropTypes.func,
   };
