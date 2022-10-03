@@ -5,7 +5,7 @@ import DrinkDetail from './DrinkDetail';
 import EditDrinkForm from './EditDrinkForm';
 import { Button } from "@mui/material";
 import { useState, useEffect } from 'react';
-import { db } from './../firebase.js'
+import { db, auth } from './../firebase.js';
 import { collection, addDoc, onSnapshot, doc, updateDoc, deleteDoc } from "firebase/firestore";
 
 function DrinkControl() {
@@ -77,6 +77,14 @@ function DrinkControl() {
     setSelectedDrink(null);
   } 
 
+  if (auth.currentUser == null) {
+    return (
+      <React.Fragment>
+        <h1>You must be signed in to access the app.</h1>
+      </React.Fragment>
+    )
+  } else if (auth.currentUser != null) {
+
     let currentlyVisibleState = null;
     let buttonText = null;
 
@@ -102,6 +110,6 @@ function DrinkControl() {
       </React.Fragment>
     );
   }
-
+}
 
 export default DrinkControl;
