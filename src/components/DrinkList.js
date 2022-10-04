@@ -4,10 +4,18 @@ import Drink from "./Drink";
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
+import styled from 'styled-components';
 
+
+const Styles = styled.section`
+  background-color: #EBEEF3;
+  margin-right: 200px;
+  
+`
 function DrinkList(props){
   return (
     <React.Fragment>
+      <Styles>
     {props.drinkList.map((drink) =>
       <List component="nav" aria-label="history">
     <ListItem button>
@@ -24,6 +32,7 @@ function DrinkList(props){
       <Divider />
       </List>
       )}
+      </Styles>
     </React.Fragment>
   );
 }

@@ -1,24 +1,11 @@
 import { auth } from "./../firebase.js";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function SignIn(){ 
-  const [signUpSuccess, setSignUpSuccess] = useState(null);
   const [signInSuccess, setSignInSuccess] = useState(null);
   const [signOutSuccess, setSignOutSuccess] = useState(null);
-
-  function doSignUp(event) {
-    event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        setSignUpSuccess(`You've successfully signed up, ${userCredential.user.email}!`)
-      })
-      .catch((error) => {
-        setSignUpSuccess(`There was an error signing up: ${error.message}!`)
-      });
-  }
 
   function doSignIn(event) {
     event.preventDefault();
@@ -44,19 +31,6 @@ function SignIn(){
 
   return (
     <React.Fragment>
-      <h1>Sign Up</h1>
-      {signUpSuccess}
-      <form onSubmit={doSignUp}>
-          <input
-            type='text'
-            name='email'
-            placeholder='email' />
-          <input
-            type='password'
-            name='password'
-            placeholder='Password' />
-          <button type='submit'>Sign up</button>
-        </form>
 
       <h1>Sign In</h1>
       {signInSuccess}
@@ -70,11 +44,14 @@ function SignIn(){
           name='signinPassword'
           placeholder='Password' />
         <button type='submit'>Sign in</button>
+        <Link to="/sign-up"><button>Create an account</button></Link>
+        
       </form>
       
       {signOutSuccess}
       <br />
       <button onClick={doSignOut}>Sign out</button>
+      <Link to="/snapNow"><button>Snap Now!</button></Link>
     </React.Fragment>
   );
 }

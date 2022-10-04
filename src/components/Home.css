@@ -11,35 +11,34 @@
    
  #item-0 {
  
-    background-image:url('https://s3.amazonaws.com/shecodesio-production/uploads/files/000/047/454/original/njp90YVXq9.png?1664815994'); 
-    background-repeat: no-repeat;
-    width: 100%;
-    height: auto;
-    padding: 100px;
     grid-row-start: 1;
     grid-column-start: 1;
  
-    grid-row-end: 3;
+    grid-row-end: 2;
     grid-column-end: 6;
     
  }
  #item-1 {
- 
-    background-color: #D6F5DC; 
-    grid-row-start: 3;
+   padding:20px;
+   margin:10px;
+   border-radius: 20px;
+    grid-row-start: 2;
     grid-column-start: 1;
  
-    grid-row-end: 4;
+    grid-row-end: 3;
     grid-column-end: 3;
     
  }
  #item-2 {
- 
-    background-color: #B59A5D; 
-    grid-row-start: 3;
+   padding:20px;
+   margin:10px;
+   border-radius: 20px;
+    grid-row-start: 2;
     grid-column-start: 3;
  
-    grid-row-end: 4;
-    grid-column-end: 6;
+    grid-row-end: 3;
+    grid-column-end: 5;
     
  }
+
+ 
