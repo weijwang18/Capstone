@@ -15,11 +15,12 @@ import {
 } from "firebase/storage";
 import { storage } from "./../firebase";
 
+
 function NewDrinkForm(props){
 
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
-  
+
   const imagesListRef = ref(storage, "images/");
   const uploadFile = () => {
     if (imageUpload == null) return;
@@ -88,16 +89,14 @@ function NewDrinkForm(props){
       </Grid>
       <Button type='submit'>Submit</Button>
         </form>
-        <input
+
+      <input
         type="file"
         onChange={(event) => {
           setImageUpload(event.target.files[0]);
         }}
       />
       <button onClick={uploadFile}> Upload Image</button>
-      {imageUrls.map((url) => {
-        return <img src={url} />;
-      })}
     </React.Fragment>
   );
   
