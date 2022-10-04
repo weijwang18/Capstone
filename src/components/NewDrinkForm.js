@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 import * as React from 'react';
-import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
 import { Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import { v4 } from "uuid";
@@ -32,23 +30,14 @@ function NewDrinkForm(props){
   };
 
   useEffect(() => {
-    const fetchImages = async () => {
-      let result = await storage.ref().child(`images/${v4()}`).listAll();
-      let urlPromises = result.items.map((imageRef) =>
-        imageRef.getDownloadURL()
-      );
-
-      return Promise.all(urlPromises);
-    };
-
-    const loadImages = async () => {
-      const urls = await fetchImages();
-      setFiles(urls);
-    };
-    loadImages();
-}, []);
-
-  console.log(files);
+    listAll(imagesListRef).then((response) => {
+      response.items.forEach((item) => {
+        getDownloadURL(item).then((url) => {
+          setImageUrls((prev) => [...prev, url]);
+        });
+      });
+    });
+  }, []);
 
   return (
     <React.Fragment>
@@ -62,25 +51,25 @@ function NewDrinkForm(props){
       </label>
       <label>
         Location:
-        <input type="text" name="name" />
+        <input type="text" name="location" />
       </label>
       <label>
         Price:
-        <input type="number" name="name" />
+        <input type="number" name="price" />
       </label>
       <label>
         Description:
-        <input type="description" name="name" />
+        <input type="text" name="description"/>
       </label>
-      <input type="hidden" name="url" id="url" />
+      <input type="hidden" name="url"/>
       <input
         type="file"
         onChange={(event) => {
           setImageUpload(event.target.files[0]);
-          <button onClick={uploadFile}> Upload Image</button>
         }}
-      />
-      <Button type='submit' onClick={uploadFile} >Submit</Button>
+        />
+        <button onClick={uploadFile}> Upload Image</button>
+      <Button type='submit' >Submit</Button>
         </form>
     </React.Fragment>
   );
