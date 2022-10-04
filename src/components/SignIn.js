@@ -13,7 +13,7 @@ function SignIn(){
     const password = event.target.signinPassword.value;
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        setSignInSuccess(`You've successfully signed in as ${userCredential.user.email}!`)
+        setSignInSuccess(`You've successfully signed in as ${userCredential.user.email}! `)
       })
       .catch((error) => {
         setSignInSuccess(`There was an error signing in: ${error.message}!`)
@@ -44,7 +44,8 @@ function SignIn(){
           name='signinPassword'
           placeholder='Password' />
         <button type='submit'>Sign in</button>
-        <Link to="/sign-up"><button>Create an account</button></Link>
+        <br />
+        <Link to="/sign-up">Create an account</Link>
         
       </form>
       
