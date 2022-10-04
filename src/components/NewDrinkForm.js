@@ -61,7 +61,7 @@ function NewDrinkForm(props){
         Description:
         <input type="text" name="description"/>
       </label>
-      <input type="hidden" name="url"/>
+      {/* <input type="hidden" name="url" value={url} /> */}
       <input
         type="file"
         onChange={(event) => {
@@ -71,9 +71,11 @@ function NewDrinkForm(props){
         <button onClick={uploadFile}> Upload Image</button>
       <Button type='submit' >Submit</Button>
         </form>
+          {imageUrls.map((url) => {
+        return <img src={url} />;
+      })}
     </React.Fragment>
   );
-  
 
   function handleNewDrinkFormSubmission(event) {
     event.preventDefault();
@@ -81,8 +83,8 @@ function NewDrinkForm(props){
       name: event.target.name.value, 
       location: event.target.location.value, 
       price: event.target.price.value, 
-      description: event.target.description.value,
-      url: event.target.url.value
+      description: event.target.description.value
+      // url: event.target.url.value
     });
   }
 }
