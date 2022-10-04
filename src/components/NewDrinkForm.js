@@ -14,8 +14,6 @@ import {
   list,
 } from "firebase/storage";
 import { storage } from "./../firebase";
-import { format } from 'date-fns';
-
 
 function NewDrinkForm(props){
 
@@ -25,7 +23,7 @@ function NewDrinkForm(props){
   const imagesListRef = ref(storage, "images/");
   const uploadFile = () => {
     if (imageUpload == null) return;
-    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    const imageRef = ref(storage, `images/${v4()}`);
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUrls((prev) => [...prev, url]);
@@ -34,15 +32,23 @@ function NewDrinkForm(props){
   };
 
   useEffect(() => {
-    listAll(imagesListRef).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setImageUrls((prev) => [...prev, url]);
-        });
-      });
-    });
-  }, []);
+    const fetchImages = async () => {
+      let result = await storage.ref().child(`images/${v4()}`).listAll();
+      let urlPromises = result.items.map((imageRef) =>
+        imageRef.getDownloadURL()
+      );
 
+      return Promise.all(urlPromises);
+    };
+
+    const loadImages = async () => {
+      const urls = await fetchImages();
+      setFiles(urls);
+    };
+    loadImages();
+}, []);
+
+  console.log(files);
 
   return (
     <React.Fragment>
@@ -50,54 +56,32 @@ function NewDrinkForm(props){
         <Typography variant="h6" gutterBottom>
         Detail
       </Typography>
-      <Grid container spacing={3}>
-        <Grid item xs={12} sm={6}>
-          <TextField
-          type = 'text'
-            name="name"
-            label="Drink Name"
-            fullWidth
-            variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-          type = 'text'
-          name ="location"
-          label="Location"
-          fullWidth
-          variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12} sm={6}>
-          <TextField
-          type = 'number'
-          name="price"
-          label="Price"
-          fullWidth
-          variant="standard"
-          />
-        </Grid>
-        <Grid item xs={12}>
-          <TextField
-          type = 'text'
-          name="description"
-          label="Description"
-          fullWidth
-          variant="standard"
-          />
-        </Grid>
-      </Grid>
-      <Button type='submit'>Submit</Button>
-        </form>
-
+      <label>
+        Drink Name:
+        <input type="text" name="name" />
+      </label>
+      <label>
+        Location:
+        <input type="text" name="name" />
+      </label>
+      <label>
+        Price:
+        <input type="number" name="name" />
+      </label>
+      <label>
+        Description:
+        <input type="description" name="name" />
+      </label>
+      <input type="hidden" name="url" id="url" />
       <input
         type="file"
         onChange={(event) => {
           setImageUpload(event.target.files[0]);
+          <button onClick={uploadFile}> Upload Image</button>
         }}
       />
-      <button onClick={uploadFile}> Upload Image</button>
+      <Button type='submit' onClick={uploadFile} >Submit</Button>
+        </form>
     </React.Fragment>
   );
   
@@ -109,6 +93,7 @@ function NewDrinkForm(props){
       location: event.target.location.value, 
       price: event.target.price.value, 
       description: event.target.description.value,
+      url: event.target.url.value
     });
   }
 }
