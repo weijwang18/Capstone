@@ -25,6 +25,7 @@ function DrinkList(props){
         price = {drink.price}
         location = {drink.location}
         description = {drink.description}
+        img = {drink.imageUrls}
         id = {drink.id}
         key = {drink.id}
         />
