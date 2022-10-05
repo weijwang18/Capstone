@@ -53,7 +53,6 @@ function SignIn(){
       {signOutSuccess}
       <br />
       <Button variant="contained" onClick={doSignOut}>Sign out</Button>
-      <Link to="/"><Button variant="contained">Snap Now</Button></Link>
     </React.Fragment>
   );
 }

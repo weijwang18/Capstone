@@ -6,12 +6,12 @@ import ListItem from '@mui/material/ListItem';
 import Divider from '@mui/material/Divider';
 import styled from 'styled-components';
 
-
 const Styles = styled.section`
   background-color: #EBEEF3;
   margin-right: 200px;
-  
+  border-radius: 25px;
 `
+
 function DrinkList(props){
   return (
     <React.Fragment>
@@ -38,7 +38,7 @@ function DrinkList(props){
 }
 
 DrinkList.propTypes = {
-    drinkList: PropTypes.array,
+  drinkList: PropTypes.array,
   onDrinkSelection: PropTypes.func
 }
 

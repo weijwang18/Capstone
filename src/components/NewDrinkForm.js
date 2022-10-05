@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import * as React from 'react';
-import Typography from '@mui/material/Typography';
 import { Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import { v4 } from "uuid";
@@ -42,12 +41,18 @@ function NewDrinkForm(props){
 
   return (
     <React.Fragment>
+      <h1>Detail</h1>
+              <Button variant="contained"  onClick={uploadFile}> Upload</Button>
+        <input
+        type="file"
+        onChange={(event) => {
+          setImageUpload(event.target.files[0]);
+        }}
+        />
+
         <form onSubmit={handleNewDrinkFormSubmission}>
-        <Typography variant="h6" gutterBottom>
-        Detail
-      </Typography>
       <label>
-        Drink Name:
+        Name:
         <input type="text" name="name" />
       </label>
       <label>
@@ -66,13 +71,7 @@ function NewDrinkForm(props){
       <br />
       <Button variant="contained"  type='submit' >Submit</Button>
        </form>
-        <input
-        type="file"
-        onChange={(event) => {
-          setImageUpload(event.target.files[0]);
-        }}
-        />
-        <Button variant="contained"  onClick={uploadFile}> Upload Image</Button>
+
     </React.Fragment>
   );
 
