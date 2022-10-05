@@ -16,6 +16,7 @@ import DatePicker from "react-datepicker";
 function NewDrinkForm(props){
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
+  const [startDate, setStartDate] = useState(new Date());
 
   const imagesListRef = ref(storage, "images/");
   const uploadFile = () => {
@@ -40,10 +41,6 @@ function NewDrinkForm(props){
     });
   }, []);
 
-  const [startDate, setStartDate] = useState(new Date());
-  return (
-    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
-  );
 
   return (
     <React.Fragment>
@@ -73,9 +70,7 @@ function NewDrinkForm(props){
         Description:
         <input type="text" name="description"/>
       </label>
-      <label>
-        
-      </label>
+      <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} ></DatePicker>
       <input id="url" type="hidden" name="url" />
 
       <br />
