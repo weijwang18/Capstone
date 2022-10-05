@@ -2,6 +2,7 @@ import { auth } from "./../firebase.js";
 import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 function SignIn(){ 
   const [signInSuccess, setSignInSuccess] = useState(null);
@@ -31,7 +32,6 @@ function SignIn(){
 
   return (
     <React.Fragment>
-      <h1>Sign Up</h1>
 
       <h1>Sign In</h1>
       {signInSuccess}
@@ -44,14 +44,16 @@ function SignIn(){
           type='password'
           name='signinPassword'
           placeholder='Password' />
-        <button type='submit'>Sign in</button>
-        <Link to="/sign-up"><button>Create an account</button></Link>
+        <Button variant="contained" type='submit'>Sign in</Button>
+        <br />
+        <Link to="/sign-up">Create an account</Link>
         
       </form>
       
       {signOutSuccess}
       <br />
-      <button onClick={doSignOut}>Sign out</button>
+      <Button variant="contained" onClick={doSignOut}>Sign out</Button>
+      <Link to="/"><Button variant="contained">Snap Now</Button></Link>
     </React.Fragment>
   );
 }

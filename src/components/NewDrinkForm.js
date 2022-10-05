@@ -14,7 +14,6 @@ import {
 import { storage } from "./../firebase";
 
 function NewDrinkForm(props){
-
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
 
@@ -25,6 +24,8 @@ function NewDrinkForm(props){
     uploadBytes(imageRef, imageUpload).then((snapshot) => {
       getDownloadURL(snapshot.ref).then((url) => {
         setImageUrls((prev) => [...prev, url]);
+        document.getElementById("url").value=url;
+        console.log(document.getElementById("url").value);
       });
     });
   };
@@ -61,19 +62,17 @@ function NewDrinkForm(props){
         Description:
         <input type="text" name="description"/>
       </label>
-      {/* <input type="hidden" name="url" value={url} /> */}
-      <input
+      <input id="url" type="hidden" name="url" />
+      <br />
+      <Button variant="contained"  type='submit' >Submit</Button>
+       </form>
+        <input
         type="file"
         onChange={(event) => {
           setImageUpload(event.target.files[0]);
         }}
         />
-        <button onClick={uploadFile}> Upload Image</button>
-      <Button type='submit' >Submit</Button>
-        </form>
-          {imageUrls.map((url) => {
-        return <img src={url} />;
-      })}
+        <Button variant="contained"  onClick={uploadFile}> Upload Image</Button>
     </React.Fragment>
   );
 
@@ -83,8 +82,8 @@ function NewDrinkForm(props){
       name: event.target.name.value, 
       location: event.target.location.value, 
       price: event.target.price.value, 
-      description: event.target.description.value
-      // url: event.target.url.value
+      description: event.target.description.value,
+      url: event.target.url.value
     });
   }
 }

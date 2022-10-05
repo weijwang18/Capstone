@@ -1,4 +1,6 @@
 h1 {
+   text-shadow: 5px 5px 8px rgba(252, 199, 193, 0.8);
    color: #303e5c;
    font-weight: 800;
+   font-size: 60px;
 }

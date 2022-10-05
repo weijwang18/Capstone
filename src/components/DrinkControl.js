@@ -106,7 +106,7 @@ function DrinkControl() {
     return (
       <React.Fragment>
         {currentlyVisibleState}
-        {error ? null : <button onClick={handleClick}>{buttonText}</button>}
+        {error ? null : <Button variant="contained" onClick={handleClick}>{buttonText}</Button>}
       </React.Fragment>
     );
   }

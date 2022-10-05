@@ -2,6 +2,7 @@ import { auth } from "./../firebase.js";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Button } from "@mui/material";
 
 function SignUp(){ 
   const [signUpSuccess, setSignUpSuccess] = useState(null);
@@ -33,10 +34,10 @@ function SignUp(){
             type='password'
             name='password'
             placeholder='Password' />
-            <button type='submit'>Sign up</button>
+            <Button variant="contained" type='submit'>Sign up</Button>
         </form>
         <br />
-        <Link to="/snapNow"><button>Snap Now!</button></Link>
+        <Link to="/snapNow"><Button variant="contained">Snap Now!</Button></Link>
         </React.Fragment>
     );
 }
