@@ -27,6 +27,7 @@ function DrinkControl() {
               price: doc.data().price,
               location: doc.data().location, 
               description: doc.data().description, 
+              url: doc.data().url,
               id: doc.id
             });
         });

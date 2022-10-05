@@ -9,7 +9,7 @@ function Drink(props){
         <p>{props.location}</p>
         <p>$ {props.price} </p>
         <p>{props.description}</p>
-        <p><img src='{props.url}' /></p>
+        <p>{props.url}</p>
       </div>
     </React.Fragment>
   );

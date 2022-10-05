@@ -11,8 +11,8 @@ function DrinkDetail(props){
           <h1>{drink.name}</h1>
           <h1>{drink.location}</h1>
           <p>$ {drink.price} </p>
-          <p>{drink.description} </p>
-          <p><img src={drink.url}/></p>
+          <p>{drink.description}</p>
+          <p><img src={drink.url} width="300"/></p>
           <Button onClick={ props.onClickingEdit }>Update Drink</Button>
           <Button onClick={()=> props.onClickingDelete(drink.id) }>Delete Drink</Button>
         <hr/>
