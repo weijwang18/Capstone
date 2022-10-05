@@ -11,6 +11,7 @@ import {
   list,
 } from "firebase/storage";
 import { storage } from "./../firebase";
+import DatePicker from "react-datepicker";
 
 function NewDrinkForm(props){
   const [imageUpload, setImageUpload] = useState(null);
@@ -38,6 +39,11 @@ function NewDrinkForm(props){
       });
     });
   }, []);
+
+  const [startDate, setStartDate] = useState(new Date());
+  return (
+    <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} />
+  );
 
   return (
     <React.Fragment>
@@ -67,7 +73,11 @@ function NewDrinkForm(props){
         Description:
         <input type="text" name="description"/>
       </label>
+      <label>
+        
+      </label>
       <input id="url" type="hidden" name="url" />
+
       <br />
       <Button variant="contained"  type='submit' >Submit</Button>
        </form>

@@ -19,10 +19,11 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route path="/snapNow" element={<DrinkControl />} />
           <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/sign-up" element={<SignUp />} /> 
         </Routes>
+        <Footer />
       </div>
-      <Footer />
+
     </Router>
     
   );
