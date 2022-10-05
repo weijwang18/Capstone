@@ -8,14 +8,11 @@
 * _JavaScript_
 * _React_
 * _CSS_
+* _Firestore_
 
 ## Description
 
 This is a web application that help people keep track of all their drink purchases and consumption. The frontend is built using React.js. The backend is built using Firestore. 
-
-## Component Diagram
-
-![diagram](diagram.png)
 
 
 ## Setup/Installation Requirements
