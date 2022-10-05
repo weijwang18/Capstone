@@ -6,6 +6,7 @@ import SignIn from "./SignIn";
 import Home from "./Home";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignUp from './SignUp';
+import Footer from "./Footer";
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
           <Route path="/sign-up" element={<SignUp />} />
         </Routes>
       </div>
+      <Footer />
     </Router>
+    
   );
 }
 
