@@ -52,7 +52,6 @@ function NewDrinkForm(props){
           setImageUpload(event.target.files[0]);
         }}
         />
-
         <form onSubmit={handleNewDrinkFormSubmission}>
       <label>
         Name:
@@ -72,7 +71,6 @@ function NewDrinkForm(props){
       </label>
       <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} ></DatePicker>
       <input id="url" type="hidden" name="url" />
-
       <br />
       <Button variant="contained"  type='submit' >Submit</Button>
        </form>
