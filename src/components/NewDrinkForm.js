@@ -1,6 +1,5 @@
 import PropTypes from "prop-types";
 import * as React from 'react';
-import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import { v4 } from "uuid";
