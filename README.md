@@ -44,18 +44,20 @@ _Requires console application such as Git Bash, Terminal, or PowerShell_
 MIT
 
 ## Research & Planning Log
-Friday, 09/16
+___Friday, 09/16___
 * 8:00 - 10:00 look at examples
 * 10:30 - 12:00 try out Material UI, review docs
 * 1:30 bugfix, look for ways to implement custom calendar
 * 2:00 - 3:30 draw component diagram
 * 4:00 - 5:00 write proposal 
-Friday, 09/23
+
+___Friday, 09/23___
 * 8:00 - 8:40 watch Figma tutorial for UI Design
 * 8:50 - 9:50 make layout in Figma, plan out structure 
 * 9:50 - 10:50 research Figma plugins and widgets
 * 10:50 - 11:50 make layout in Figma, plan out structure
-Friday, 09/30
+
+___Friday, 09/30___
 * 10:00 - 11:00 watch hook tutorial
 
 Copyright (c) 2022 Winnie Wang
