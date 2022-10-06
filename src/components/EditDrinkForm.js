@@ -7,7 +7,14 @@ function EditDrinkForm (props) {
 
     function handleEditDrinkFormSubmission(event) {
       event.preventDefault();
-      props.onEditDrink({name: event.target.name.value, location: event.target.location.value, price: event.target.price.value, description: event.target.description.value, id: drink.id});
+      props.onEditDrink({      
+        name: event.target.name.value, 
+        location: event.target.location.value, 
+        price: event.target.price.value, 
+        description: event.target.description.value,
+        url: event.target.url.value,
+        date: event.target.date.value, 
+        id: drink.id});
     }
   
   return (
