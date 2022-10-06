@@ -66,7 +66,7 @@ function ReusableForm(props) {
       </Form.Group>
       <Form.Group className="mb-3">
       <Form.Label>Price:</Form.Label>
-      <Form.Control type="number" name="price"></Form.Control>
+      <Form.Control type="text" name="price"></Form.Control>
       </Form.Group>
       <Form.Group className="mb-3">
       <Form.Label>Description:</Form.Label>
