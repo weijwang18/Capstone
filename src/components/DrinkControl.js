@@ -28,6 +28,7 @@ function DrinkControl() {
               location: doc.data().location, 
               description: doc.data().description, 
               url: doc.data().url,
+              date: doc.data().date,
               id: doc.id
             });
         });

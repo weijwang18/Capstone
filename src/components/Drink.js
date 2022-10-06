@@ -10,6 +10,7 @@ function Drink(props){
         <p>$ {props.price} </p>
         <p>{props.description}</p>
         <p>{props.url}</p>
+        <p>{props.date}</p>
       </div>
     </React.Fragment>
   );
@@ -21,6 +22,7 @@ Drink.prototype = {
   location: PropTypes.string,
   description: PropTypes.string,
   url: PropTypes.string,
+  date: PropTypes.instanceOf(Date),
   id: PropTypes.string,
   whenDrinkClicked: PropTypes.func
 }

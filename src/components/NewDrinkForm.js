@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import * as React from 'react';
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import { Button } from "@mui/material";
 import { useState, useEffect } from "react";
 import { v4 } from "uuid";
@@ -10,13 +11,15 @@ import {
   listAll,
   list,
 } from "firebase/storage";
+
 import { storage } from "./../firebase";
+import "./NewDrinkForm.css";
 import DatePicker from "react-datepicker";
+
 
 function NewDrinkForm(props){
   const [imageUpload, setImageUpload] = useState(null);
   const [imageUrls, setImageUrls] = useState([]);
-  const [startDate, setStartDate] = useState(new Date());
 
   const imagesListRef = ref(storage, "images/");
   const uploadFile = () => {
@@ -44,6 +47,7 @@ function NewDrinkForm(props){
 
   return (
     <React.Fragment>
+      <div className="detailForm">
       <h1>Detail</h1>
               <Button variant="contained"  onClick={uploadFile}> Upload</Button>
         <input
@@ -69,12 +73,15 @@ function NewDrinkForm(props){
         Description:
         <input type="text" name="description"/>
       </label>
-      <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} ></DatePicker>
+      <label>
+        Date:
+        <input type="date" name="date" />
+      </label>
       <input id="url" type="hidden" name="url" />
       <br />
-      <Button variant="contained"  type='submit' >Submit</Button>
+      <Button variant="contained"  type='submit'>Submit</Button>
        </form>
-
+       </div>
     </React.Fragment>
   );
 
@@ -85,7 +92,8 @@ function NewDrinkForm(props){
       location: event.target.location.value, 
       price: event.target.price.value, 
       description: event.target.description.value,
-      url: event.target.url.value
+      url: event.target.url.value,
+      date: event.target.date.value
     });
   }
 }

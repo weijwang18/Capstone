@@ -21,6 +21,7 @@ function DrinkDetail(props){
           <h1>Drink Detail</h1>
           <h2>{drink.name}</h2>
           <h2>{drink.location}</h2>
+          <p>{drink.date}</p>
           <p>$ {drink.price} </p>
           <p>{drink.description}</p>
           <p><img src={drink.url} width="300"/></p>
