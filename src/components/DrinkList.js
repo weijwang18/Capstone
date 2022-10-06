@@ -22,9 +22,7 @@ function DrinkList(props){
         <Drink 
         whenDrinkClicked = { props.onDrinkSelection }
         name = {drink.name} 
-        price = {drink.price}
         location = {drink.location}
-        description = {drink.description}
         date = {drink.date}
         id = {drink.id}
         key = {drink.id}

@@ -7,6 +7,12 @@ h1 {
    margin-bottom: 30px;
 }
 
+h2 {
+   color: #303e5c;
+   margin-left: 10px;
+   font-weight: 700;
+   font-size: 30px;
+}
 
 a:link { text-decoration: none; }
 
