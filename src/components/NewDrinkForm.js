@@ -14,8 +14,13 @@ import {
 
 import { storage } from "./../firebase";
 import "./NewDrinkForm.css";
-import DatePicker from "react-datepicker";
+import Form from 'react-bootstrap/Form';
+import styled from 'styled-components';
 
+const Styles = styled.section`
+  margin-left:100px;
+  margin-right:100px;
+  font-weight: bold;`
 
 function NewDrinkForm(props){
   const [imageUpload, setImageUpload] = useState(null);
@@ -47,41 +52,45 @@ function NewDrinkForm(props){
 
   return (
     <React.Fragment>
-      <div className="detailForm">
-      <h1>Detail</h1>
-              <Button variant="contained"  onClick={uploadFile}> Upload</Button>
-        <input
+<div className="detailForm">
+      <h1>Detail</h1> 
+    <Styles>
+        <Form onSubmit={handleNewDrinkFormSubmission} autocomplete="off">
+        <Form.Group className="mb-3">
+        <Form.Label>Name:</Form.Label>
+        <Form.Control type="text" name="name"></Form.Control>
+      </Form.Group>
+      <Form.Group className="mb-3">
+      <Form.Label>Location:</Form.Label>
+      <Form.Control type="text" name="location"></Form.Control>
+      </Form.Group>
+      <Form.Group className="mb-3">
+      <Form.Label>Price:</Form.Label>
+      <Form.Control type="number" name="price"></Form.Control>
+      </Form.Group>
+      <Form.Group className="mb-3">
+      <Form.Label>Description:</Form.Label>
+      <Form.Control type="text" name="description"></Form.Control>
+      </Form.Group>
+      <Form.Group className="mb-3">
+      <Form.Label>Date:</Form.Label>
+      <Form.Control  type="date" name="date"></Form.Control>
+      </Form.Group>
+      <input id="url" type="hidden" name="url" />
+
+      <input
         type="file"
         onChange={(event) => {
           setImageUpload(event.target.files[0]);
-        }}
-        />
-        <form onSubmit={handleNewDrinkFormSubmission}>
-      <label>
-        Name:
-        <input type="text" name="name" />
-      </label>
-      <label>
-        Location:
-        <input type="text" name="location" />
-      </label>
-      <label>
-        Price:
-        <input type="number" name="price" />
-      </label>
-      <label>
-        Description:
-        <input type="text" name="description"/>
-      </label>
-      <label>
-        Date:
-        <input type="date" name="date" />
-      </label>
-      <input id="url" type="hidden" name="url" />
-      <br />
+        }}/>
+        <Button variant="contained"  onClick={uploadFile}> Upload</Button>
+        <br />
+        <br />
       <Button variant="contained"  type='submit'>Submit</Button>
-       </form>
-       </div>
+      <br />
+       </Form>
+        </Styles>
+        </div>
     </React.Fragment>
   );
 
