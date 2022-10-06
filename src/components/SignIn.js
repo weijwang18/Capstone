@@ -46,7 +46,7 @@ function SignIn(){
           placeholder='Password' />
         <Button variant="contained" type='submit'>Sign in</Button>
         <br />
-        <Link to="/sign-up">Don't have an account? Create an account</Link>
+        <Link to="/sign-up">Create an account 👈</Link>
         
       </form>
       

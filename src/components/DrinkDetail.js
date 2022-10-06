@@ -7,7 +7,7 @@ import "./DrinkDetail.css"
 const Styles = styled.section`
   background-color: #EBEEF3;
   border-radius: 25px;
-  margin-right: 200px;
+  margin-right: 50%;
   text-align:center;
   padding: 10px;
   color: #303e5c;
@@ -22,13 +22,14 @@ function DrinkDetail(props){
           <h1>Drink Detail</h1>
 
           <h2>{drink.name}</h2>
-          <h3>{drink.location}</h3>
+          <h3>📍 {drink.location}</h3>
           <p id="date">{drink.date}</p>
           <p id="price">${drink.price} </p>
-         <div className="description">
-          <p >{drink.description}</p>
-          </div>
           <p><img src={drink.url} width="300"/></p>
+         <div className="description">
+          <p >📝 {drink.description}</p>
+          </div>
+        
           <Button onClick={ props.onClickingEdit }>Update Drink</Button>
           <Button onClick={()=> props.onClickingDelete(drink.id) }>Delete Drink</Button>
         <hr/>
