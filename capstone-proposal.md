@@ -3,7 +3,7 @@
 ## Name of Project: 
 * Sip ‘n Snap
 ## Project's Purpose or Goal: 
-* It’s a milk tea (or drinks in general) log that help people keep track of all their drink purchases and consumption. 
+* This is a web application that help people keep track of all their drink purchases. 
 ## List the absolute minimum features the project requires to meet this purpose or goal:
 * Allow user to upload a image and log the price, name, location and rating for the drink
 * Allow user to see their monthly spending on drinks and the number of drinks a user has purchased that month.

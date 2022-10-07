@@ -1,4 +1,4 @@
-# Capstone
+# Sip ‘n Snap
 
 #### By _Winnie Wang_
 
@@ -12,7 +12,7 @@
 
 ## Description
 
-This is a web application that help people keep track of all their drink purchases and consumption. The frontend is built using React.js. The backend is built using Firestore. 
+This is a web application that help people keep track of all their drink purchases. The frontend is built using React.js. The backend is built using Firestore. The spendings tracker is a feature that lists out all of a user's purchases, detailing the name, date, location, and price of purchase. When you click into the Snap Now page, you will be asked to fill out theses details along with an option to attach an image or description of the drink or experience
 
 
 ## Setup/Installation Requirements
