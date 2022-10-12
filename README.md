@@ -2,6 +2,8 @@
 
 #### By _Winnie Wang_
 
+[View the project here](https://sip-and-snap.web.app/)
+
 ## Technologies Used
 
 * _HTML_
@@ -61,5 +63,6 @@ ___Friday, 09/30___
 * 10:00 - 11:00 watch hook tutorial
 
 Copyright (c) 2022 Winnie Wang
+
 
 

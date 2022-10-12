@@ -38,15 +38,15 @@ function NewDrinkForm(props){
     });
   };
 
-  useEffect(() => {
-    listAll(imagesListRef).then((response) => {
-      response.items.forEach((item) => {
-        getDownloadURL(item).then((url) => {
-          setImageUrls((prev) => [...prev, url]);
-        });
-      });
-    });
-  }, []);
+  // useEffect(() => {
+  //   listAll(imagesListRef).then((response) => {
+  //     response.items.forEach((item) => {
+  //       getDownloadURL(item).then((url) => {
+  //         setImageUrls((prev) => [...prev, url]);
+  //       });
+  //     });
+  //   });
+  // }, []);
 
 
   return (
