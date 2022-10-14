@@ -7,7 +7,7 @@ function Drink(props){
       <div onClick = {() => props.whenDrinkClicked(props.id)}>
       <div className="list">
         <h1>{props.date} </h1>
-        <h2>😋 {props.name} </h2>
+        <h2>{props.name} </h2>
       </div>
       </div>
     </React.Fragment>
